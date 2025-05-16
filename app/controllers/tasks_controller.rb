@@ -1,12 +1,20 @@
 class TasksController < ApplicationController
   def index
-    @tasks = ["Trabajar", "Dormir", "Ir de fiesta", "Viajar"]
+    @tasks = Task.all
   end
 
   def new
   end
 
-  def create    
+  def create
+    task_params = params[:task]
+    title = task_params[:title]
+    description = task_params[:description]
+
+    @task = Task.new(title: title, description: description)
+    @task.save!
+
+    redirect_to tasks_path
   end
 
   def show

@@ -1,9 +1,15 @@
 <h1>Tasks#new</h1>
 
-<form action="???" data-turbo="false">
-  <input type="text" name="title">
-  <input type="text" name="description">
-  <input type="submit" value="Create task!">
-</form>
+<%= form_with model: Task.new do |form| %>
+    <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </div>
+    <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+    </div>
+    <%= form.submit %>
+<% end %>
 
 <%= params %>

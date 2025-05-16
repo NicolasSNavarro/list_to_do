@@ -1,2 +1,10 @@
 <h1>Tasks#index</h1>
-<%= @tasks %>
+Crear nueva: <%= link_to "Tarea", new_task_path %>
+
+<% @tasks.each do |task| %>
+    <div>
+        <h1><%= task.title %></h1>
+        <p><%= task.description %></p>
+    </div>
+<% end %>
+
